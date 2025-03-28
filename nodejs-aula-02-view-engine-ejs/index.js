@@ -1,0 +1,48 @@
+// Importando o pacote do Express.js
+const express = require("express");
+
+// Carregando o método pricipal do Express
+const app = express(); // Iniciando o express
+
+// CONFIGURANDO A VIEW ENGINE - EJS
+app.set("view engine", "ejs");
+
+// Criando a rota principal (raiz) do site
+// Método .get cria uma rota na aplicação
+// REQ -> Trata a requisão
+// RES -> Trata a resposta
+
+// Rota do index
+app.get("/", (req, res) => {
+  res.render("index");
+});
+
+// Rota de perfil
+app.get("/perfil", (req, res) => {
+  res.render("perfil");
+});
+
+// Rota de produtos
+app.get("/produtos/:produto?", (req, res) => {
+  // Coletando o parâmetro da rota
+  const produto = req.params.produto;
+  res.render("produtos", {
+    // Enviando a variável produto para a página
+    produto: produto,
+  });
+});
+
+// Iniciando o servidor da aplicação na porta 8080
+// O método listen do Express inicia um servidor
+
+app.listen(8080, (error) => {
+  if (error) {
+    console.log("Ocorreu um erro ao iniciar o servidor!" + error);
+  } else {
+    console.log("Servidor iniciado com sucesso!");
+  }
+});
+
+///////////
+
+//npm start
