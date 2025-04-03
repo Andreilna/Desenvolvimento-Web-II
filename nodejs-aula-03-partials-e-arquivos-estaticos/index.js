@@ -7,6 +7,9 @@ const app = express(); // Iniciando o express
 // CONFIGURANDO A VIEW ENGINE - EJS
 app.set("view engine", "ejs");
 
+// CONFIGURANDO A PASTA PUBLIC PARA ARQUIVOS ESTÁTICOS
+app.use(express.static('public'));
+
 // Criando a rota principal (raiz) do site
 // Método .get cria uma rota na aplicação
 // REQ -> Trata a requisão
