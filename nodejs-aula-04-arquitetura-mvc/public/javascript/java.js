@@ -1,0 +1,1 @@
+// window.alert("Se você está lendo isso , o JavaScript foi importado com sucesso!");
